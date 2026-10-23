@@ -83,16 +83,65 @@ Ubuntu
 ----------------------------------------------------------
 Git
 
-- 기본 설정 저장 
-git  
+기본 설정 저장 
+- 중요 -> 현재 디렉터리 확인: pwd
+- git config --global user.name "이름"
+- git config --global user.email "이메일"
+- git config --global init.defaultBranch main
+
+기본 설정 확인
+- git config --list 
+
+[중요]깃 초기화
+- cd ~/devops -> 초기화할 홈 디렉터리로 이동
+- git init -> 깃이 버전을 관리하는 디렉터리로 초기화
+- git status -> 깃 상태 보기
+
+
+리포지토리 만들기
+- gh repo create <레포이름> --public --source=. --remote=origin --push 
+- <레포이름>: 생성할 깃허브 레포지토리 이름
+- --public : 공개 저장소로 생성
+- --source=. :현재 디렉터리를 원본으로 사용 -> 현재 디렉터리의 깃 저장소를 깃허브에 연결
+- --remote=origin : 원격 저장소 이름 지정
+- origin : 연결된 원격 저장소에 관례적으로 사용하는 이름
+- --push : 로컬의 커밋을 원격저장소에 업로드 
  
 
+웹에서 확인하기
+- gh repo view --web 
+- gh browse --no-browser
 
+커밋 이후 반드시 푸시
 
+- git add text.txt -> 특정 파일 지정
+- git commit -m "메시지" -> 하나의 버전으로 저장
+- git push 
+- git log -> 커밋 기록 확인 
+- git log --oneline 
 
+커밋 변경 (커밋 해시의 버전으로 변경)
+- git switch -d <커밋 해시>
+커밋 변경 비교 git diff <커밋해시1> <커밋 해시2>
 
+브랜치 : 특정 커밋을 가리키는 이름
+브랜치 만들기
+- git switch -c <브랜치 이름>
+브랜치 이동 
+- git switch <브랜치 이름>
+현재 브랜치 확인
+- git branch 
+브랜치 포함한 현재 상태 그래프로 보기
+- git log --oneline --all --graph
 
+외부 pc에서 사용할 경우 반드시 로그아웃
+- gh auth status
+- gh auth logout 
+- gh auth status
 
-
+다른 pc에 작업물 가져오기
+- gh clone http://github.com/<아이디>/<레포이름>.git 
+- cd <레포이름> 
+- gh auth login 
 
 
